@@ -70,15 +70,27 @@
 
                 <div class="panel-body">
 
-                    <ul>
+                    <table border="1">
+                    <tr>
+                        <td>title</td>
+                        <td>description</td>
+                        <td>start</td>
+                        <td>end</td>
+                        <td>slots</td>
+                        <td>price</td>
+                        <td>action</td>
+                    </tr>
                     @foreach($courses as $course)
-                        <li>$course</li>
+                        <tr>
+                            <td>{{ $course->title }}</td>
+                            <td>{{ $course->description }}</td>
+                            <td>{{ $course->start }}</td>
+                            <td>{{ $course->end }}</td>
+                            <td>Reserved {{ $course->reserved_slots / $course->total_slots }}</td>
+                            <td>${{ $course->price }}</td>
+                            <td><a href="/course/edit/{{ $course->id }}">edit</a></td>
+                        </tr>
                     @endforeach
-                    </ul>
-
-                    <table>
-
-                        <tr></tr>
                     </table>
 
                 </div>

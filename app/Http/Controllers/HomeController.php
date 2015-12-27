@@ -28,11 +28,8 @@ class HomeController extends Controller
     {
 
 		echo Auth::id();
-		$courses = Course::where('instructor_id', '=', Auth::id());
-		
-		foreach($courses as $course) {
-			echo $course->title;
-		}
+		$courses = Course::where('instructor_id', '=', Auth::id())->get();
+
         return view('home')->with('courses', $courses);
 
     }
