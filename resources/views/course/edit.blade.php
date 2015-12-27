@@ -19,12 +19,12 @@
 
 
             <div class="panel panel-default">
-                <div class="panel-heading">Create New Course</div>
+                <div class="panel-heading">Edit Course</div>
 
                 <div class="panel-body">
 
 
-                    {{ Form::open(array('action' => array('CourseController@create', Auth::id()))) }}
+                    {{ Form::model($course, array('action' => array('CourseController@update', $course->id))) }}
 
                         <!-- course title -->
                         {{ Form::label('title', 'Title') }}<br />
@@ -49,53 +49,18 @@
                         {{ Form::time('end_time') }}<br />
 
                         {{ Form::label('price', 'Price $') }}<br />
-                        {{ Form::number('price', '0.00') }}<br />
+                        {{ Form::number('price') }}<br />
 
                         {{ Form::label('total_slots', 'Open slots') }}<br />
-                        {{ Form::number('total_slots', '0') }}<br />
+                        {{ Form::number('total_slots') }}<br />
 
 
 
-
-                        {{ Form::submit('Create Course') }}
+                        {{ Form::submit('Save Course') }}
 
                     {{ Form::close() }}
                 </div>
             </div>
-
-
-
-            <div class="panel panel-default">
-                <div class="panel-heading">Courses I'm Teaching</div>
-
-                <div class="panel-body">
-
-                    <table border="1">
-                    <tr>
-                        <td>title</td>
-                        <td>description</td>
-                        <td>start</td>
-                        <td>end</td>
-                        <td>slots</td>
-                        <td>price</td>
-                        <td>action</td>
-                    </tr>
-                    @foreach($courses as $course)
-                        <tr>
-                            <td>{{ $course->title }}</td>
-                            <td>{{ $course->description }}</td>
-                            <td>{{ $course->start }}</td>
-                            <td>{{ $course->end }}</td>
-                            <td>Reserved {{ $course->reserved_slots / $course->total_slots }}</td>
-                            <td>${{ $course->price }}</td>
-                            <td><a href="/course/edit/{{ $course->id }}">edit</a></td>
-                        </tr>
-                    @endforeach
-                    </table>
-
-                </div>
-            </div>
-
 
 
 

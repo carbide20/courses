@@ -32,17 +32,13 @@ Route::group(['middleware' => 'web'], function () {
 
     Route::get('/home', 'HomeController@index');
 
-	// Course editing route
-	Route::get('course/edit/{id}', array('as' => 'course.edit', function($id)
-	{
-		// return our view and Course information
-		return View::make('course-edit') // pulls app/views/course-edit.blade.php
-		->with('course', Course::find($id));
 
-	}));
 
 	// Course editing
-	Route::post('course/edit', 'CourseController@edit');
+	Route::get('course/edit/{id}', 'CourseController@edit');
+
+	// Course editing
+	Route::post('course/update/{id}', 'CourseController@update');
 
 
 	// Course creation

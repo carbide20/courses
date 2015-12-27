@@ -27,9 +27,10 @@ class HomeController extends Controller
     public function index()
     {
 
-		echo Auth::id();
+		// Get an array of courses which this instructor has created
 		$courses = Course::where('instructor_id', '=', Auth::id())->get();
 
+		// Render the view, passing the courses array into it
         return view('home')->with('courses', $courses);
 
     }
