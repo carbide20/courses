@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests;
 use Illuminate\Http\Request;
+use Auth;
+use App\Course;
 
 class HomeController extends Controller
 {
@@ -24,6 +26,14 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+
+		echo Auth::id();
+		$courses = Course::where('instructor_id', '=', Auth::id());
+		
+		foreach($courses as $course) {
+			echo $course->title;
+		}
+        return view('home')->with('courses', $courses);
+
     }
 }
