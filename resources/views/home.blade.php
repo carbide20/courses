@@ -78,7 +78,7 @@
                         <td>end</td>
                         <td>slots</td>
                         <td>price</td>
-                        <td>action</td>
+                        <td>actions</td>
                     </tr>
                     @foreach($courses as $course)
                         <tr>
@@ -88,7 +88,7 @@
                             <td>{{ $course->end }}</td>
                             <td>Reserved {{ $course->reserved_slots / $course->total_slots }}</td>
                             <td>${{ $course->price }}</td>
-                            <td><a href="/course/edit/{{ $course->id }}">edit</a></td>
+                            <td><a href="/course/edit/{{ $course->id }}">edit</a> | <a href="/course/delete/{{ $course->id }}">delete</a></td>
                         </tr>
                     @endforeach
                     </table>

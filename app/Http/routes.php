@@ -40,9 +40,11 @@ Route::group(['middleware' => 'web'], function () {
 	// Course editing
 	Route::post('course/update/{id}', 'CourseController@update');
 
-
 	// Course creation
 	Route::post('course/create', 'CourseController@create');
+
+	// Course deletion
+	Route::get('course/delete/{id}', 'CourseController@delete');
 
 });
 
