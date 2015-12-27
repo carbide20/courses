@@ -12,6 +12,22 @@ use Redirect;
 class CourseController extends Controller
 {
 
+	/**
+	 * Lists all available courses for API calls
+	 */
+	public function index() {
+		
+		$courses = Course::all();
+		echo json_encode($courses);
+
+	}
+
+
+	/**
+	 * Handles creation of new courses
+	 * @param Request $request
+	 * @return mixed
+	 */
 	public function create(Request $request) {
 
 		// Make sure that the all required fields are present
@@ -61,7 +77,11 @@ class CourseController extends Controller
 	}
 
 
-
+	/**
+	 * Handles populating and rendering the course edit page
+	 * @param $id
+	 * @return $this
+	 */
 	public function edit($id) {
 
 		// Make sure the user is still logged in, and we have a course ID to edit
@@ -95,7 +115,12 @@ class CourseController extends Controller
 	}
 
 
-
+	/**
+	 * Processes postdata when a user updates a course
+	 * @param Request $request
+	 * @param $id
+	 * @return mixed
+	 */
 	public function update(Request $request, $id) {
 
 		// Make sure that the all required fields are present
@@ -150,6 +175,11 @@ class CourseController extends Controller
 	}
 
 
+	/**
+	 * Handles course deletion
+	 * @param $id
+	 * @return mixed
+	 */
 	public function delete($id) {
 
 		// Make sure we have an active user

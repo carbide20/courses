@@ -33,7 +33,6 @@ Route::group(['middleware' => 'web'], function () {
     Route::get('/home', 'HomeController@index');
 
 
-
 	// Course editing
 	Route::get('course/edit/{id}', 'CourseController@edit');
 
@@ -49,6 +48,15 @@ Route::group(['middleware' => 'web'], function () {
 });
 
 
+
+// This section handles API calls
+Route::group(array('prefix' => 'api'), function()
+{
+
+	// Lists all available courses
+	Route::resource('courses', 'CourseController');
+
+});
 
 
 
