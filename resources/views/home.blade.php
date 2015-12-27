@@ -86,7 +86,7 @@
                             <td>{{ $course->description }}</td>
                             <td>{{ $course->start }}</td>
                             <td>{{ $course->end }}</td>
-                            <td>Reserved {{ $course->reserved_slots / $course->total_slots }}</td>
+                            <td>Reserved {{ $course->reserved_slots }} / {{ $course->total_slots }}</td>
                             <td>${{ $course->price }}</td>
                             <td><a href="/course/edit/{{ $course->id }}">edit</a> | <a href="/course/delete/{{ $course->id }}">delete</a></td>
                         </tr>
