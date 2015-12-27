@@ -13,17 +13,6 @@ class CourseController extends Controller
 {
 
 	/**
-	 * Lists all available courses for API calls
-	 */
-	public function index() {
-		
-		$courses = Course::all();
-		echo json_encode($courses);
-
-	}
-
-
-	/**
 	 * Handles creation of new courses
 	 * @param Request $request
 	 * @return mixed

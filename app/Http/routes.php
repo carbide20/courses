@@ -54,7 +54,7 @@ Route::group(array('prefix' => 'api'), function()
 {
 
 	// Lists all available courses
-	Route::resource('courses', 'CourseController');
+	Route::resource('courses', 'CourseApiController');
 
 });
 
